@@ -1,0 +1,11 @@
+# -*- mode: ruby -*-
+
+# This is a vagrant file showing the "fix" to make private networks
+# work, which is needed as of vagrant-1.7.2
+
+ENV['VAGRANT_DEFAULT_PROVIDER']="vmware_fusion"
+Vagrant.configure(2) do |config|
+  config.vm.box = "brianm_fedora-21"
+  config.vm.network "private_network", ip: "172.17.17.17"
+  config.vm.provision :shell, inline: "sudo /sbin/ifdown eth1 && sudo /sbin/ifup eth1"    
+end
