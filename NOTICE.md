@@ -1,3 +1,5 @@
+# Based on Bento https://github.com/chef/bento
+
 Bento NOTICE
 ============
 
